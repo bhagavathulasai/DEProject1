@@ -1,0 +1,25 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model files
+*.h5
+*.keras
+*.pth
+*.pt
+*.onnx
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
