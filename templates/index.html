@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Prediction</title>
+    <style>
+        body {
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/051/008/976/small/3d-render-of-a-tooth-with-dental-mirror-and-scaler-on-a-turquoise-background-for-oral-health-care-photo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            color: black;
+            text-align: center;
+        }
+
+        h1 {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        #result {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        #result img {
+            max-width: 500px; /* Set maximum width */
+            width: 100%; /* Make image responsive */
+            height: 400px; /* Set fixed height */
+            object-fit: contain; /* Maintain aspect ratio without cropping */
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Upload Image for Prediction</h1>
+    
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <div id="result">
+        <h2>Prediction Result</h2>
+        <p id="prediction"></p>
+        <p id="confidence"></p>
+        <img id="uploaded-image" src="" alt="Uploaded Image">
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const resultDiv = document.getElementById('result');
+        const predictionText = document.getElementById('prediction');
+        const confidenceText = document.getElementById('confidence');
+        const uploadedImage = document.getElementById('uploaded-image');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData
+            });
+
+            const data = await response.json();
+            if (data.prediction) {
+                predictionText.textContent = `Prediction: ${data.prediction}`;
+                confidenceText.textContent = `Confidence Score: ${data.confidence_score}`;
+                uploadedImage.src = data.image_url || ''; // Fallback to empty string if undefined
+                resultDiv.style.display = 'block';
+            } else {
+                predictionText.textContent = data.message || 'An error occurred.';
+                confidenceText.textContent = '';
+                uploadedImage.src = data.image_url || ''; // Fallback to empty string if undefined
+                resultDiv.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
