@@ -1,0 +1,87 @@
+{
+  "test_accuracy": 0.2,
+  "loss": 0.06666666666666667,
+  "precision_macro": 0.04,
+  "recall_macro": 0.2,
+  "f1_macro": 0.06666666666666667,
+  "expected_calibration_error": 0.7508179977536202,
+  "rejection_rate": 0.9,
+  "inference_latency_seconds": 0.2280451774597168,
+  "model_size_mb": 298.3547773361206,
+  "class_distribution": {
+    "Calculus": 4,
+    "Dental Caries": 4,
+    "Gingivitis": 4,
+    "Hypodontia": 4,
+    "Mouth Ulcer": 4
+  },
+  "per_class_metrics": {
+    "Calculus": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 4
+    },
+    "Dental Caries": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 4
+    },
+    "Gingivitis": {
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1_score": 0.3333333333333333,
+      "support": 4
+    },
+    "Hypodontia": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 4
+    },
+    "Mouth Ulcer": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 4
+    }
+  },
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0,
+      0
+    ]
+  ]
+}

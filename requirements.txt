@@ -2,6 +2,13 @@ flask
 tensorflow
 opencv-python
 numpy
+scikit-learn
+fastapi
+uvicorn
+python-multipart
+sqlalchemy
+psycopg[binary]
+alembic
 groq
 python-dotenv
 Pillow

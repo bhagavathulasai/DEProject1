@@ -1,0 +1,26 @@
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["api_app", "dentalvision", "tests"]
+exclude = [
+    ".venv",
+    "alembic",
+    "frontend",
+    "storage",
+    "models",
+    "__pycache__",
+    "*.ipynb",
+    "**/*.ipynb",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-ra --strict-markers"
