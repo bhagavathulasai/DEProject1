@@ -11,6 +11,8 @@ env/
 # Python cache
 __pycache__/
 *.pyc
+.coverage
+htmlcov/
 
 # Model files
 *.h5
