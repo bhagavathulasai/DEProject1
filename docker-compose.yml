@@ -9,6 +9,8 @@ services:
       DATABASE_URL: postgresql+psycopg://postgres:postgres@db:5432/dentalvision
       APP_ENV: development
       PORT: 8000
+      DENTALVISION_MODEL_DIR: /app/models
+      DENTALVISION_MODEL_PATH: /app/models/Improved_CNN_trained.keras
     ports:
       - "8000:8000"
     depends_on:
@@ -16,7 +18,7 @@ services:
         condition: service_healthy
     volumes:
       - ./storage:/app/storage
-      - ./models:/app/models
+      - ./models:/app/models:ro
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health').read()"]
       interval: 20s

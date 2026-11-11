@@ -3,6 +3,11 @@ venv/
 .venv/
 env/
 
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
 # Python cache
 __pycache__/
 *.pyc
@@ -13,6 +18,12 @@ __pycache__/
 *.pth
 *.pt
 *.onnx
+
+# Uploaded images and local data
+static/uploads/*
+storage/uploads/*
+storage/secure/*
+uploads/*
 
 # Jupyter checkpoints
 .ipynb_checkpoints/

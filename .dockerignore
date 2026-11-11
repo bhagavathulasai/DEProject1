@@ -16,3 +16,8 @@ frontend/dist
 storage/uploads/*
 storage/secure/*
 models/*
+artifacts/
+Data set/
+static/uploads/*
+uploads/*
+frontend/dist/
